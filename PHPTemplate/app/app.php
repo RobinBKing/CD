@@ -14,10 +14,10 @@
 
     });
 
-    $app->post("/view_template", function() use ($app) {
+    $app->get("/view_template", function() use ($app) {
         $my_TaskGenerator  = new TaskGenerator;            
         $my_task = $my_TaskGenerator->makeTask($_GET['task']);
-        return $app['twig']->render('tasks.twig', array('result' => $task));
+        return $app['twig']->render('tasks.html.twig', array('result' => $task));
       });
 
     return $app;
